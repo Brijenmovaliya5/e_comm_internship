@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- font awesome cdn link  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>React App</title>
+  </head>
+  <script>
+
+    let menu = document.querySelector('#menu-bar');
+    let navbar = document.querySelector('.navbar');
+  
+    menu.onclick = () => {
+      menu.classList.toggle('fa-times');
+      navbar.classList.toggle('active');
+    }
+  
+    window.onscroll = () => {
+      menu.classList.remove('fa-times');
+      navbar.classList.remove('active');
+    }
+  
+    let slides = document.querySelectorAll('.slide-container');
+    let index = 0;
+  
+    function next() {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+  
+    function prev() {
+      slides[index].classList.remove('active');
+      index = (index - 1 + slides.length) % slides.length;
+      slides[index].classList.add('active');
+    }
+  
+    document.querySelectorAll('.featured-image-1').forEach(image_1 => {
+      image_1.addEventListener('click', () => {
+        var src = image_1.getAttribute('src');
+        document.querySelector('.big-image-1').src = src;
+      });
+    });
+  
+    document.querySelectorAll('.featured-image-2').forEach(image_2 => {
+      image_2.addEventListener('click', () => {
+        var src = image_2.getAttribute('src');
+        document.querySelector('.big-image-2').src = src;
+      });
+    });
+  
+    document.querySelectorAll('.featured-image-3').forEach(image_3 => {
+      image_3.addEventListener('click', () => {
+        var src = image_3.getAttribute('src');
+        document.querySelector('.big-image-3').src = src;
+      });
+    });
+  
+  </script>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  </body>
+</html>
